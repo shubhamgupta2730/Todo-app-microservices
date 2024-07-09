@@ -5,6 +5,7 @@ export interface createTodoRequest {
   title: string;
   dueDate?: Date;
   priority?: TodoPriority;
+  userId: string;
 }
 
 export interface updatedTodoRequest {
