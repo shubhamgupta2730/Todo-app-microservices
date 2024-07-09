@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
 export enum TodoPriority {
   LOW = 'LOW',
@@ -11,6 +11,7 @@ export interface ITodo extends Document {
   completed: boolean;
   dueDate?: Date;
   priority: TodoPriority;
+ 
 }
 
 const todoSchema = new Schema<ITodo>({
@@ -33,6 +34,6 @@ const todoSchema = new Schema<ITodo>({
   },
 });
 
-const Todo = model<ITodo>('Todo', todoSchema);
+const Todo = mongoose.model<ITodo>('Todo', todoSchema);
 
 export default Todo;
